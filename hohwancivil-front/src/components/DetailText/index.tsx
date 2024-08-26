@@ -2,7 +2,7 @@ import { HStack, Text } from "@chakra-ui/react";
 
 interface DetailTextProps {
   title: string;
-  content: string;
+  content: string | number;
 }
 
 const DetailText = ({ title, content }: DetailTextProps) => {
