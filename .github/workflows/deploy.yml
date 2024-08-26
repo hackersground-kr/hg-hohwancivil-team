@@ -33,9 +33,12 @@ jobs:
 
       - name: Set environment variables
         run: |
-          echo "DB_ENDPOINT=${{ secrets.API_ENDPOINT }}" >> $GITHUB_ENV
-          echo "DB_KEY=${{ secrets.API_KEY }}" >> $GITHUB_ENV
+          echo "API_ENDPOINT=${{ secrets.API_ENDPOINT }}" >> $GITHUB_ENV
+          echo "API_KEY=${{ secrets.API_KEY }}" >> $GITHUB_ENV
           az webapp config appsettings set --name plzwork --resource-group rg-hohwancivil-team --settings DB_ENDPOINT=${{ secrets.API_ENDPOINT }} DB_KEY=${{ secrets.API_KEY }}
 
       - name: Start application
         run: cd db && npm start
+        env: # 환경 변수 설정
+          API_ENDPOINT: ${{ secrets.API_ENDPOINT }}
+          API_KEY: ${{ secrets.API_KEY }}
