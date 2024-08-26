@@ -1,6 +1,8 @@
 //require('dotenv').config();
-const endpoint = process.env.ENDPOINT;
-const key = process.env.KEY;
+const endpoint = process.env.API_ENDPOINT;
+const key = process.env.API_KEY;
+
+console.log(endpoint);
 
 
 const express = require('express');
