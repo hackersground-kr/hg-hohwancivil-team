@@ -62,9 +62,9 @@ const MyPage = () => {
                     location={dumm.location}
                     startDate={dumm.startDate}
                     endDate={dumm.endDate}
-                    isFinish={dumm.isClosed}
-                    wage={dumm.salary}
-                    agritype={dumm.species}
+                    isClosed={dumm.isClosed}
+                    salary={dumm.salary}
+                    species={dumm.species}
                   />
                 ))}
               </Tbody>
@@ -88,9 +88,9 @@ const MyPage = () => {
                     location={dumm.location}
                     startDate={dumm.startDate}
                     endDate={dumm.endDate}
-                    isFinish={dumm.isClosed}
-                    wage={dumm.salary}
-                    agritype={dumm.species}
+                    isClosed={dumm.isClosed}
+                    salary={dumm.salary}
+                    species={dumm.species}
                   />
                 ))}
               </Tbody>
