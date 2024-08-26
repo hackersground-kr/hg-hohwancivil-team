@@ -1,28 +1,31 @@
-name: Deploy
+name: Deploy to Azure Web App
 
 on:
   push:
     branches:
-      - main
+      - main  # 배포할 브랜치 이름
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
-      - name: Set up Node.js
+
+      - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '20.17.0'  # 원하는 Node.js 버전
 
       - name: Install dependencies
-        run:
-          cd db && npm install  # 필요에 따라 변경
+        run: cd db && npm install
 
-      - name: Deploy
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'plzwork'  # Azure App Service 이름
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+
+      - name: Set environment variables
         run: |
-          az webapp up --name db-app --rg-hohwancivil-team  --location koreacentral
-
+          az webapp config appsettings set --name plzwork --resource-group rg-hohwancivil-team --settings DB_ENDPOINT=${{ secrets.API_ENDPOINT }} DB_KEY=${{ secrets.API_KEY }}
