@@ -29,6 +29,47 @@
 
 > **여러분의 제품/서비스를 Microsoft 애저 클라우드에 배포하기 위해 사전에 필요한 준비 사항들을 적어주세요.**
 
+1. AZURE 구독
+
+![image](https://github.com/user-attachments/assets/94e35598-986c-4581-880e-c70c2760df1a)
+
+
 ## 시작하기
 
 > **여러분의 제품/서비스를 Microsoft 애저 클라우드에 배포하기 위한 절차를 구체적으로 나열해 주세요.**
+
+### 프론트엔드(React)
+
+1. Azure Portal 접속한 후 로그인
+
+2. 리소스 그룹 생성 또는 속한 리소스 그룹 클릭
+
+3. 리소스 만들기 클릭
+
+  ![image](https://github.com/user-attachments/assets/aab7774e-ab43-48b1-b1d1-451ace5fb7cf)
+
+5. "정적 웹앱" 검색 후 정적 웹 앱 선택
+
+   ![image](https://github.com/user-attachments/assets/2bc9a613-4fe9-40b7-a716-c23d1edd5691)
+
+6. 만들기 클릭
+
+7. 구독, 리소스 그룹, 만들 웹 앱의 이름 정하기
+  
+    ![image](https://github.com/user-attachments/assets/9c3a6b8a-db4e-48ec-8dcb-7d95d54dba2f)
+
+8. 웹 앱 호스트 종류, 코드를 제공 받을 방법 등을 결정한 후 Github의 경우 소스 코드의 위치(경로) 설정 후 만들기 클릭
+
+    ![image](https://github.com/user-attachments/assets/95f83809-d8fa-4d25-9e38-4cf0f02a56f2)
+
+9. 빌드 세부 정보에서 빌드 사전 설정에 React가 뜨는 것을 확인한 후 앱 위치와 만약 필요하다면 api 파일의 주소, 그리고 vite 환경에서 제작하였기 때문에
+   출력 위치를 build가 아닌 dist로 변경
+
+   ![image](https://github.com/user-attachments/assets/3f8b634b-b2a5-42de-a774-0e2f5afd07d5)
+
+11. 검토+만들기를 누르고 마지막으로 다시 한번 만들기를 누르고 기다리면 완성!
+
+    ![image](https://github.com/user-attachments/assets/a9f5beb8-9a64-4912-a692-067bc405b298)
+
+   이후 생성된 url을 통해 배포가 잘 되었는지 확인한다.
+
