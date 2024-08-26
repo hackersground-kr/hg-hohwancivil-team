@@ -5,6 +5,7 @@ import DefaultLayout from "./layout/DefaultLayout";
 import DetailPage from "../pages/DetailPage";
 import UploadPage from "../pages/UploadPage";
 import SearchPage from "../pages/SearchPage";
+import ApplyPage from "../pages/ApplyPage";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: "/keyword",
         element: <SearchPage />,
+      },
+      {
+        path: "/apply",
+        element: <ApplyPage />,
       },
     ],
   },

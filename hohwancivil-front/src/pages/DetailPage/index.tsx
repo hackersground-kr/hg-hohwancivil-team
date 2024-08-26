@@ -85,7 +85,9 @@ const DetailPage = () => {
           </Text>
           <Text padding="2 rem">{data?.details}</Text>
           <Center marginTop="1rem">
-            <Button w="20%">지원하기</Button>
+            <Button w="20%" onClick={() => navigate("/apply")}>
+              지원하기
+            </Button>
           </Center>
         </Stack>
       </Center>
