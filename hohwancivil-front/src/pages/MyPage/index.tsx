@@ -15,106 +15,27 @@ import {
   Tr,
   useMediaQuery,
 } from "@chakra-ui/react";
-//import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import WorkBox from "../../components/WorkBox";
-import { workDummy } from "../HomePage";
-
-const dummy: workDummy = {
-  content: [
-    {
-      id: "3",
-      title: "고추수확 도와주실 분 구합니다",
-      location: "경북 의성군",
-      startDate: "2024-02",
-      endDate: "2024-05",
-      isFinish: true,
-      wage: "30만원",
-      agritype: "고추",
-    },
-    {
-      id: "13",
-      title: "고추수확 도와주실 분 구합니다",
-      location: "경북 의성군",
-      startDate: "2024-02",
-      endDate: "2024-05",
-      isFinish: false,
-      wage: "30만원",
-      agritype: "고추",
-    },
-
-    {
-      id: "4",
-      title: "고추수확 도와주실 분 구합니다",
-      location: "경북 의성군",
-      startDate: "2024-02",
-      endDate: "2024-05",
-      isFinish: true,
-      wage: "30만원",
-      agritype: "고추",
-    },
-    {
-      id: "2",
-      title: "고추수확 도와주실 분 구합니다",
-      location: "경북 의성군",
-      startDate: "2024-02",
-      endDate: "2024-05",
-      isFinish: false,
-      wage: "30만원",
-      agritype: "고추",
-    },
-    {
-      id: "12",
-      title: "고추수확 도와주실 분 구합니다",
-      location: "경북 의성군",
-      startDate: "2024-02",
-      endDate: "2024-05",
-      isFinish: false,
-      wage: "30만원",
-      agritype: "고추",
-    },
-    {
-      id: "11",
-      title: "고추수확 도와주실 분 구합니다",
-      location: "경북 의성군",
-      startDate: "2024-02",
-      endDate: "2024-05",
-      isFinish: false,
-      wage: "30만원",
-      agritype: "고추",
-    },
-    {
-      id: "1",
-      title: "고추수확 도와주실 분 구합니다",
-      location: "경북 의성군",
-      startDate: "2024-02",
-      endDate: "2024-05",
-      isFinish: false,
-      wage: "30만원",
-      agritype: "고추",
-    },
-  ],
-};
-
-interface MyPageProps {
-  name: string;
-  phone: string;
-}
-
-const dummyUser: MyPageProps = {
-  name: "hihihi",
-  phone: "010-0000-0000",
-};
+import { getMyPage } from "../../apis/User";
+import { useQuery } from "@tanstack/react-query";
 
 const MyPage = () => {
-  //const { userId } = useParams() || ""; // URL에서 사용자 ID를 가져오기
+  const { userId } = useParams() || "";
 
   const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
+
+  const { data } = useQuery({
+    queryKey: ["user", userId],
+    queryFn: () => getMyPage(userId || ""),
+  });
+
   return (
     <>
       <Box display="flex" justifyContent="center">
         <Stack>
-          <Heading>{dummyUser.name}</Heading>
-          <Text>{dummyUser.phone}</Text>
+          <Heading>{data?.user.name}</Heading>
+          <Text>{data?.user.phoneNumber}</Text>
         </Stack>
       </Box>
       <Tabs>
@@ -134,16 +55,16 @@ const MyPage = () => {
                 </Tr>
               </Thead>
               <Tbody>
-                {dummy.content.map((dumm) => (
+                {data?.userWrites.map((dumm) => (
                   <WorkBox
                     key={dumm.id}
                     title={dumm.title}
                     location={dumm.location}
                     startDate={dumm.startDate}
                     endDate={dumm.endDate}
-                    isFinish={dumm.isFinish}
-                    wage={dumm.wage}
-                    agritype={dumm.agritype}
+                    isFinish={dumm.isClosed}
+                    wage={dumm.salary}
+                    agritype={dumm.species}
                   />
                 ))}
               </Tbody>
@@ -160,16 +81,16 @@ const MyPage = () => {
                 </Tr>
               </Thead>
               <Tbody>
-                {dummy.content.map((dumm) => (
+                {data?.userWrites.map((dumm) => (
                   <WorkBox
                     key={dumm.id}
                     title={dumm.title}
                     location={dumm.location}
                     startDate={dumm.startDate}
                     endDate={dumm.endDate}
-                    isFinish={dumm.isFinish}
-                    wage={dumm.wage}
-                    agritype={dumm.agritype}
+                    isFinish={dumm.isClosed}
+                    wage={dumm.salary}
+                    agritype={dumm.species}
                   />
                 ))}
               </Tbody>

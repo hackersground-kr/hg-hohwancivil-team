@@ -9,7 +9,7 @@ export interface WorkBoxProps {
   startDate: string;
   endDate: string;
   agritype: string;
-  wage?: string;
+  wage?: number;
 }
 
 const WorkBox = ({
@@ -20,7 +20,7 @@ const WorkBox = ({
   startDate,
   endDate,
   agritype,
-  wage = "",
+  wage = 0,
 }: WorkBoxProps) => {
   const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
   const navigate = useNavigate();
@@ -41,7 +41,7 @@ const WorkBox = ({
           <Text>{agritype}</Text>
         </Stack>
       </Th>
-      {wage === "" ? <Th>x</Th> : <Th>{wage}</Th>}
+      {wage ? <Th>{wage}</Th> : <Th>x</Th>}
       {isLargerThan768 ? (
         <Th>
           {isFinish ? (

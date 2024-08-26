@@ -1,4 +1,5 @@
 export interface WorkType {
+  id: string;
   location: string;
   isClosed: boolean;
   title: string;
@@ -21,6 +22,7 @@ export interface UserType {
 export interface mypageResponseType {
   user: UserType;
   userWrites: WorkType[];
+  relatedWrites: WorkType[];
 }
 
 export interface jobListResponseType {
