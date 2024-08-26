@@ -22,8 +22,9 @@ jobs:
         run:
           cd db && npm install  # 필요에 따라 변경
 
-      - name: Build
-        run: cd db && npm run build  # 필요한 경우 빌드 명령어 추가
+      - name: run
+        run:
+          node db/index.js
 
       - name: Deploy
         run: |
