@@ -1,4 +1,4 @@
-require('dotenv').config();
+//require('dotenv').config();
 const endpoint = process.env.ENDPOINT;
 const key = process.env.KEY;
 

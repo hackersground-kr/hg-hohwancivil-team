@@ -25,6 +25,11 @@ jobs:
       - name: run
         run:
           node db/index.js
+          env:
+            API_ENDPOINT: ${{secrets.API_ENDPOINT}}
+            API_KEY: ${{secrets.API_KEY}}
+
+
 
       - name: Deploy
         run: |
