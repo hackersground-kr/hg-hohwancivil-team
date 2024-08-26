@@ -18,12 +18,20 @@ jobs:
           node-version: '20.17.0'  # 원하는 Node.js 버전
 
       - name: Install dependencies
-        run: cd db && npm install
+        run: |
+          cd db
+          npm install
 
       - name: Login to Azure
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Set environment variables
+        run: |
+          echo "API_ENDPOINT=${{ secrets.API_ENDPOINT }}" >> $GITHUB_ENV
+          echo "API_KEY=${{ secrets.API_KEY }}" >> $GITHUB_ENV
+          az webapp config appsettings set --name plzwork --resource-group rg-hohwancivil-team --settings DB_ENDPOINT=${{ secrets.API_ENDPOINT }} DB_KEY=${{ secrets.API_KEY }}
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
@@ -31,8 +39,3 @@ jobs:
           app-name: 'plzwork'  # Azure App Service 이름
           publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
 
-      - name: Set environment variables
-        run: |
-          echo "API_ENDPOINT=${{ secrets.API_ENDPOINT }}" >> $GITHUB_ENV
-          echo "API_KEY=${{ secrets.API_KEY }}" >> $GITHUB_ENV
-          az webapp config appsettings set --name plzwork --resource-group rg-hohwancivil-team --settings DB_ENDPOINT=${{ secrets.API_ENDPOINT }} DB_KEY=${{ secrets.API_KEY }}
