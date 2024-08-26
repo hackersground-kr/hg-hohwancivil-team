@@ -105,7 +105,7 @@ const dummy: workDummy = {
 };
 
 const HomePage = () => {
-  const [isLargerThan768] = useMediaQuery("(min-width: 768px)")
+  const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
 
   return (
     <Tabs>
@@ -121,23 +121,21 @@ const HomePage = () => {
                 <Th>위치</Th>
                 <Th>공고정보</Th>
                 <Th>급여</Th>
-                {isLargerThan768 ? <Th>지원하기</Th>:<></>}
+                {isLargerThan768 ? <Th>지원하기</Th> : <></>}
               </Tr>
             </Thead>
             <Tbody>
               {dummy.content.map((dumm) => (
-                <Tr key={dumm.id}>
-                  <WorkBox
-                    id={dumm.id}
-                    title={dumm.title}
-                    location={dumm.location}
-                    startDate={dumm.startDate}
-                    endDate={dumm.endDate}
-                    isFinish={dumm.isFinish}
-                    wage={dumm.wage}
-                    agritype={dumm.agritype}
-                  />
-                </Tr>
+                <WorkBox
+                  key={dumm.id}
+                  title={dumm.title}
+                  location={dumm.location}
+                  startDate={dumm.startDate}
+                  endDate={dumm.endDate}
+                  isFinish={dumm.isFinish}
+                  wage={dumm.wage}
+                  agritype={dumm.agritype}
+                />
               ))}
             </Tbody>
           </Table>
@@ -149,22 +147,20 @@ const HomePage = () => {
                 <Th>위치</Th>
                 <Th>공고정보</Th>
                 <Th>급여</Th>
-                {isLargerThan768 ? <Th>지원하기</Th>:<></>}
+                {isLargerThan768 ? <Th>지원하기</Th> : <></>}
               </Tr>
             </Thead>
             <Tbody>
               {dummy.content.map((dumm) => (
-                <Tr key={dumm.id}>
-                  <WorkBox
-                    id={dumm.id}
-                    title={dumm.title}
-                    location={dumm.location}
-                    startDate={dumm.startDate}
-                    endDate={dumm.endDate}
-                    isFinish={dumm.isFinish}
-                    agritype={dumm.agritype}
-                  />
-                </Tr>
+                <WorkBox
+                  key={dumm.id}
+                  title={dumm.title}
+                  location={dumm.location}
+                  startDate={dumm.startDate}
+                  endDate={dumm.endDate}
+                  isFinish={dumm.isFinish}
+                  agritype={dumm.agritype}
+                />
               ))}
             </Tbody>
           </Table>

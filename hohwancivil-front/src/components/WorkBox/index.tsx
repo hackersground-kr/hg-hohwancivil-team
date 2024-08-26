@@ -1,8 +1,8 @@
-import { Button, Stack, Text, Th, useMediaQuery } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Button, Stack, Text, Th, Tr, useMediaQuery } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 export interface WorkBoxProps {
-  id: string;
+  key: string;
   isFinish: boolean;
   location: string;
   title: string;
@@ -13,7 +13,7 @@ export interface WorkBoxProps {
 }
 
 const WorkBox = ({
-  id,
+  key,
   isFinish,
   location,
   title,
@@ -23,8 +23,9 @@ const WorkBox = ({
   wage = "",
 }: WorkBoxProps) => {
   const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
+  const navigate = useNavigate();
   return (
-    <Link to={`/work/${id}`}>
+    <Tr onClick={() => navigate(`/work/${key}`)}>
       <Th>{location}</Th>
       <Th>
         <Stack>
@@ -41,13 +42,18 @@ const WorkBox = ({
         </Stack>
       </Th>
       {wage === "" ? <Th>x</Th> : <Th>{wage}</Th>}
-      {isLargerThan768 ? <Th>{isFinish ? (
-          <Button isDisabled={false}>마감</Button>
-        ) : (
-          <Button>지원하기</Button>
-        )}
-      </Th>
-    </Link>
+      {isLargerThan768 ? (
+        <Th>
+          {isFinish ? (
+            <Button isDisabled={false}>마감</Button>
+          ) : (
+            <Button>지원하기</Button>
+          )}
+        </Th>
+      ) : (
+        <></>
+      )}
+    </Tr>
   );
 };
 
