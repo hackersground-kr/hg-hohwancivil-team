@@ -27,7 +27,7 @@ jobs:
           API_ENDPOINT: ${{secrets.API_ENDPOINT}}
           API_KEY: ${{secrets.API_KEY}}
         run:
-          node db/index.js
+          node db/index.js &
 
 
 
