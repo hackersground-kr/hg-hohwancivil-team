@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import DetailText from "../../components/DetailText";
 import { getDetail } from "../../apis/Post";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 
 const DetailPage = () => {
@@ -22,6 +22,8 @@ const DetailPage = () => {
     queryKey: ["detail", userId],
     queryFn: () => getDetail(userId || ""),
   });
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -85,7 +87,9 @@ const DetailPage = () => {
           </Text>
           <Text padding="2 rem">{data?.details}</Text>
           <Center marginTop="1rem">
-            <Button w="20%">지원하기</Button>
+            <Button w="20%" onClick={() => navigate("/apply")}>
+              지원하기
+            </Button>
           </Center>
         </Stack>
       </Center>
