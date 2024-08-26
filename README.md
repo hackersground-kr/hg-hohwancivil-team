@@ -40,7 +40,7 @@
 
 ### 프론트엔드(React)
 
-1. Azure Portal 접속
+1. Azure Portal 접속한 후 로그인
 
 2. 리소스 그룹 생성 또는 속한 리소스 그룹 클릭
 
