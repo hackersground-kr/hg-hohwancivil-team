@@ -166,18 +166,16 @@ const SearchPage = () => {
               </Thead>
               <Tbody>
                 {dummy.content.map((dumm) => (
-                  <Tr key={dumm.id}>
-                    <WorkBox
-                      id={dumm.id}
-                      title={dumm.title}
-                      location={dumm.location}
-                      startDate={dumm.startDate}
-                      endDate={dumm.endDate}
-                      isFinish={dumm.isFinish}
-                      wage={dumm.wage}
-                      agritype={dumm.agritype}
-                    />
-                  </Tr>
+                  <WorkBox
+                    key={dumm.id}
+                    title={dumm.title}
+                    location={dumm.location}
+                    startDate={dumm.startDate}
+                    endDate={dumm.endDate}
+                    isFinish={dumm.isFinish}
+                    wage={dumm.wage}
+                    agritype={dumm.agritype}
+                  />
                 ))}
               </Tbody>
             </Table>
@@ -194,17 +192,15 @@ const SearchPage = () => {
               </Thead>
               <Tbody>
                 {dummy.content.map((dumm) => (
-                  <Tr key={dumm.id}>
-                    <WorkBox
-                      id={dumm.id}
-                      title={dumm.title}
-                      location={dumm.location}
-                      startDate={dumm.startDate}
-                      endDate={dumm.endDate}
-                      isFinish={dumm.isFinish}
-                      agritype={dumm.agritype}
-                    />
-                  </Tr>
+                  <WorkBox
+                    key={dumm.id}
+                    title={dumm.title}
+                    location={dumm.location}
+                    startDate={dumm.startDate}
+                    endDate={dumm.endDate}
+                    isFinish={dumm.isFinish}
+                    agritype={dumm.agritype}
+                  />
                 ))}
               </Tbody>
             </Table>
