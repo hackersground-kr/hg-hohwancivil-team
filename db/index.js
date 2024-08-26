@@ -2,12 +2,6 @@
 const endpoint = process.env.API_ENDPOINT;
 const key = process.env.API_KEY;
 
-const cors = require('cors');
-app.use(cors({
-    origin: 'https://salmon-field-0f3ba8500.5.azurestaticapps.net'
-}));
-
-
 
 const express = require('express');
 
@@ -45,6 +39,20 @@ const schema_relation = Joi.object({
 const { CosmosClient } = require('@azure/cosmos');
 
 const app = express();
+
+//middleware
+const cors = require('cors');
+app.use(cors({
+    origin: 'https://salmon-field-0f3ba8500.5.azurestaticapps.net'
+}));
+
+app.use('/static', express.static('public', {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.js')) {
+            res.setHeader('Content-Type', 'application/javascript');
+        }
+    }
+}));
 const port = 3000;
 
 
