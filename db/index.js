@@ -1,5 +1,5 @@
 //require('dotenv').config();
-const endpoint = process.env.API_ENDPOINT;
+const endpoint = process.env.API_ENDPOINT;//
 const key = process.env.API_KEY;
 
 console.log(endpoint);
