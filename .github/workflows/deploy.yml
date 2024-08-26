@@ -1,0 +1,29 @@
+name: Deploy
+
+on:
+  push:
+    paths:
+      - 'db/**' # index.js 파일에 대한 푸시 이벤트를 감지합니다.
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.17.0'  # 원하는 Node.js 버전
+
+      - name: Install dependencies
+        run: npm install  # 필요에 따라 변경
+
+      - name: Build
+        run: npm run build  # 필요한 경우 빌드 명령어 추가
+
+      - name: Deploy
+        run: |
+          az webapp up --name db-app --rg-hohwancivil-team  --location koreacentral
