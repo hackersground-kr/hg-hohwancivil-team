@@ -56,11 +56,11 @@
 
 7. 구독, 리소스 그룹, 만들 웹 앱의 이름 정하기
   
-   ![image](https://github.com/user-attachments/assets/51a2d0a4-438a-4a58-8a2b-c9a46cb65c61)
+    ![image](https://github.com/user-attachments/assets/9c3a6b8a-db4e-48ec-8dcb-7d95d54dba2f)
 
 8. 웹 앱 호스트 종류, 코드를 제공 받을 방법 등을 결정한 후 Github의 경우 소스 코드의 위치(경로) 설정 후 만들기 클릭
 
-   ![image](https://github.com/user-attachments/assets/0e535cf4-0bc5-4cce-9c09-8e01d4ecfb80)
+    ![image](https://github.com/user-attachments/assets/95f83809-d8fa-4d25-9e38-4cf0f02a56f2)
 
 9. 기다리면 완성!
 
