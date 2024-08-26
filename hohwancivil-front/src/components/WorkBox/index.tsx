@@ -3,24 +3,24 @@ import { useNavigate } from "react-router-dom";
 
 export interface WorkBoxProps {
   key: string;
-  isFinish: boolean;
+  isClosed: boolean;
   location: string;
   title: string;
   startDate: string;
   endDate: string;
-  agritype: string;
-  wage?: string;
+  species: string;
+  salary?: number;
 }
 
 const WorkBox = ({
   key,
-  isFinish,
+  isClosed,
   location,
   title,
   startDate,
   endDate,
-  agritype,
-  wage = "",
+  species,
+  salary = 0,
 }: WorkBoxProps) => {
   const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
   const navigate = useNavigate();
@@ -38,13 +38,13 @@ const WorkBox = ({
           <Text>
             {startDate}~{endDate}
           </Text>
-          <Text>{agritype}</Text>
+          <Text>{species}</Text>
         </Stack>
       </Th>
-      {wage === "" ? <Th>x</Th> : <Th>{wage}</Th>}
+      {salary === 0 ? <Th>x</Th> : <Th>{salary}</Th>}
       {isLargerThan768 ? (
         <Th>
-          {isFinish ? (
+          {isClosed ? (
             <Button isDisabled={false}>마감</Button>
           ) : (
             <Button>지원하기</Button>

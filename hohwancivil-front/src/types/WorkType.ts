@@ -1,15 +1,14 @@
 export interface WorkType {
   location: string;
-  isFinish: boolean;
+  isClosed: boolean;
   title: string;
   startDate: string;
   endDate: string;
-  detail: string;
-  wage: string;
-  pCount: number;
-  agritype: string;
-  duration: number;
-  contacts: string;
-  isSleepEat: string;
-  time: number;
+  details: string;
+  salary: number;
+  personnel: number;
+  species: string;
+  workingHour: number;
+  contact: string;
+  mealSleep: string;
 }

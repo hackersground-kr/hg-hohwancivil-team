@@ -15,13 +15,13 @@ import WorkBox from "../../components/WorkBox";
 
 export interface WorkdumProps {
   id: string;
-  isFinish: boolean;
+  isClosed: boolean;
   location: string;
   title: string;
   startDate: string;
   endDate: string;
-  agritype: string;
-  wage?: string;
+  species: string;
+  salary?: number;
 }
 
 export interface workDummy {
@@ -36,30 +36,30 @@ const dummy: workDummy = {
       location: "경북 의성군",
       startDate: "2024-02",
       endDate: "2024-05",
-      isFinish: true,
-      wage: "30만원",
-      agritype: "고추",
+      isClosed: true,
+      salary: 300000,
+      species: "고추",
     },
     {
       id: "13",
-      title: "고추수확 도와주실 분 구합니다",
+      title: "마늘수확 도와주실 분 구합니다",
       location: "경북 의성군",
-      startDate: "2024-02",
-      endDate: "2024-05",
-      isFinish: false,
-      wage: "30만원",
-      agritype: "고추",
+      startDate: "2024-04",
+      endDate: "2024-06",
+      isClosed: false,
+      salary: 300000,
+      species: "고추",
     },
 
     {
       id: "4",
-      title: "고추수확 도와주실 분 구합니다",
+      title: "마늘수확 도와주실 분 구합니다",
       location: "경북 의성군",
-      startDate: "2024-02",
-      endDate: "2024-05",
-      isFinish: true,
-      wage: "30만원",
-      agritype: "고추",
+      startDate: "2024-04",
+      endDate: "2024-06",
+      isClosed: false,
+      salary: 300000,
+      species: "고추",
     },
     {
       id: "2",
@@ -67,9 +67,9 @@ const dummy: workDummy = {
       location: "경북 의성군",
       startDate: "2024-02",
       endDate: "2024-05",
-      isFinish: false,
-      wage: "30만원",
-      agritype: "고추",
+      isClosed: true,
+      salary: 300000,
+      species: "고추",
     },
     {
       id: "12",
@@ -77,9 +77,9 @@ const dummy: workDummy = {
       location: "경북 의성군",
       startDate: "2024-02",
       endDate: "2024-05",
-      isFinish: false,
-      wage: "30만원",
-      agritype: "고추",
+      isClosed: true,
+      salary: 300000,
+      species: "고추",
     },
     {
       id: "11",
@@ -87,9 +87,9 @@ const dummy: workDummy = {
       location: "경북 의성군",
       startDate: "2024-02",
       endDate: "2024-05",
-      isFinish: false,
-      wage: "30만원",
-      agritype: "고추",
+      isClosed: true,
+      salary: 300000,
+      species: "고추",
     },
     {
       id: "1",
@@ -97,9 +97,9 @@ const dummy: workDummy = {
       location: "경북 의성군",
       startDate: "2024-02",
       endDate: "2024-05",
-      isFinish: false,
-      wage: "30만원",
-      agritype: "고추",
+      isClosed: true,
+      salary: 300000,
+      species: "고추",
     },
   ],
 };
@@ -132,9 +132,9 @@ const HomePage = () => {
                   location={dumm.location}
                   startDate={dumm.startDate}
                   endDate={dumm.endDate}
-                  isFinish={dumm.isFinish}
-                  wage={dumm.wage}
-                  agritype={dumm.agritype}
+                  isClosed={dumm.isClosed}
+                  salary={dumm.salary}
+                  species={dumm.species}
                 />
               ))}
             </Tbody>
@@ -158,8 +158,8 @@ const HomePage = () => {
                   location={dumm.location}
                   startDate={dumm.startDate}
                   endDate={dumm.endDate}
-                  isFinish={dumm.isFinish}
-                  agritype={dumm.agritype}
+                  isClosed={dumm.isClosed}
+                  species={dumm.species}
                 />
               ))}
             </Tbody>

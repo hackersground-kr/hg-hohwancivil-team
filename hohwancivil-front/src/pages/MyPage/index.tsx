@@ -27,9 +27,9 @@ const dummy: workDummy = {
       location: "경북 의성군",
       startDate: "2024-02",
       endDate: "2024-05",
-      isFinish: true,
-      wage: "30만원",
-      agritype: "고추",
+      isClosed: true,
+      salary: 300000,
+      species: "고추",
     },
     {
       id: "13",
