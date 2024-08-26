@@ -62,7 +62,12 @@
 
     ![image](https://github.com/user-attachments/assets/95f83809-d8fa-4d25-9e38-4cf0f02a56f2)
 
-9. 기다리면 완성!
+9. 빌드 세부 정보에서 빌드 사전 설정에 React가 뜨는 것을 확인한 후 앱 위치와 만약 필요하다면 api 파일의 주소, 그리고 vite 환경에서 제작하였기 때문에
+   출력 위치를 build가 아닌 dist로 변경
+
+   ![image](https://github.com/user-attachments/assets/3f8b634b-b2a5-42de-a774-0e2f5afd07d5)
+
+11. 만들기를 누르고 기다리면 완성!
 
     ![image](https://github.com/user-attachments/assets/a9f5beb8-9a64-4912-a692-067bc405b298)
 
