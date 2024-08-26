@@ -12,100 +12,21 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import WorkBox from "../../components/WorkBox";
-
-export interface WorkdumProps {
-  id: string;
-  isClosed: boolean;
-  location: string;
-  title: string;
-  startDate: string;
-  endDate: string;
-  species: string;
-  salary?: number;
-}
-
-export interface workDummy {
-  content: WorkdumProps[];
-}
-
-const dummy: workDummy = {
-  content: [
-    {
-      id: "3",
-      title: "고추수확 도와주실 분 구합니다",
-      location: "경북 의성군",
-      startDate: "2024-02",
-      endDate: "2024-05",
-      isClosed: true,
-      salary: 300000,
-      species: "고추",
-    },
-    {
-      id: "13",
-      title: "마늘수확 도와주실 분 구합니다",
-      location: "경북 의성군",
-      startDate: "2024-04",
-      endDate: "2024-06",
-      isClosed: false,
-      salary: 300000,
-      species: "고추",
-    },
-
-    {
-      id: "4",
-      title: "마늘수확 도와주실 분 구합니다",
-      location: "경북 의성군",
-      startDate: "2024-04",
-      endDate: "2024-06",
-      isClosed: false,
-      salary: 300000,
-      species: "고추",
-    },
-    {
-      id: "2",
-      title: "고추수확 도와주실 분 구합니다",
-      location: "경북 의성군",
-      startDate: "2024-02",
-      endDate: "2024-05",
-      isClosed: true,
-      salary: 300000,
-      species: "고추",
-    },
-    {
-      id: "12",
-      title: "고추수확 도와주실 분 구합니다",
-      location: "경북 의성군",
-      startDate: "2024-02",
-      endDate: "2024-05",
-      isClosed: true,
-      salary: 300000,
-      species: "고추",
-    },
-    {
-      id: "11",
-      title: "고추수확 도와주실 분 구합니다",
-      location: "경북 의성군",
-      startDate: "2024-02",
-      endDate: "2024-05",
-      isClosed: true,
-      salary: 300000,
-      species: "고추",
-    },
-    {
-      id: "1",
-      title: "고추수확 도와주실 분 구합니다",
-      location: "경북 의성군",
-      startDate: "2024-02",
-      endDate: "2024-05",
-      isClosed: true,
-      salary: 300000,
-      species: "고추",
-    },
-  ],
-};
+import { getJobList, getVolList } from "../../apis/Post";
+import { useQuery } from "@tanstack/react-query";
 
 const HomePage = () => {
   const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
+
+  const { data: jobList } = useQuery({
+    queryKey: ["jobList"],
+    queryFn: () => getJobList(),
+  });
+
+  const { data: volList } = useQuery({
+    queryKey: ["volList"],
+    queryFn: () => getVolList(),
+  });
 
   return (
     <Tabs>
@@ -125,7 +46,7 @@ const HomePage = () => {
               </Tr>
             </Thead>
             <Tbody>
-              {dummy.content.map((dumm) => (
+              {jobList?.map((dumm) => (
                 <WorkBox
                   key={dumm.id}
                   title={dumm.title}
@@ -151,7 +72,7 @@ const HomePage = () => {
               </Tr>
             </Thead>
             <Tbody>
-              {dummy.content.map((dumm) => (
+              {volList?.map((dumm) => (
                 <WorkBox
                   key={dumm.id}
                   title={dumm.title}
