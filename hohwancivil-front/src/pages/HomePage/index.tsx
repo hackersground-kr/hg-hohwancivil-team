@@ -81,6 +81,7 @@ const HomePage = () => {
                   endDate={dumm.endDate}
                   isClosed={dumm.isClosed}
                   species={dumm.species}
+                  salary={dumm.salary}
                 />
               ))}
             </Tbody>
