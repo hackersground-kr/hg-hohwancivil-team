@@ -2,8 +2,8 @@ name: Deploy
 
 on:
   push:
-    paths:
-      - 'db/**'
+    branches:
+      - main
 
 jobs:
   deploy:
