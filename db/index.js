@@ -49,7 +49,7 @@ app.use(cors({
 app.use('/static', express.static('public', {
     setHeaders: (res, path) => {
         if (path.endsWith('.js')) {
-            res.setHeader('Content-Type', 'application/javascript');
+            res.setHeader('Content-Type', 'text/javascript');
         }
     }
 }));
