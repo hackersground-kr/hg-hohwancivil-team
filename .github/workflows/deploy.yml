@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     paths:
-      - 'db/**' # index.js 파일에 대한 푸시 이벤트를 감지합니다.
+      - 'db/**'
 
 jobs:
   deploy:
@@ -27,4 +27,4 @@ jobs:
       - name: Deploy
         run: |
           az webapp up --name db-app --rg-hohwancivil-team  --location koreacentral
-          
+
