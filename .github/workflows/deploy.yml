@@ -27,3 +27,4 @@ jobs:
       - name: Deploy
         run: |
           az webapp up --name db-app --rg-hohwancivil-team  --location koreacentral
+          
