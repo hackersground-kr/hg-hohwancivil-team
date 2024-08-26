@@ -12,7 +12,7 @@ import {
  */
 export const getJobList = async () => {
   try {
-    const res = await apiInstance.get<WorkType[]>(`/jobsList`);
+    const res = await apiInstance.get<WorkType[]>(`/api/jobsList`);
 
     return res.data;
   } catch (e) {
@@ -26,7 +26,7 @@ export const getJobList = async () => {
  */
 export const getVolList = async () => {
   try {
-    const res = await apiInstance.get<WorkType[]>(`/volunList`);
+    const res = await apiInstance.get<WorkType[]>(`/api/volunList`);
 
     return res.data;
   } catch (e) {
@@ -40,7 +40,7 @@ export const getVolList = async () => {
  */
 export const getDetail = async (id: string) => {
   try {
-    const res = await apiInstance.get<WorkType>(`/writeOne/${id}`);
+    const res = await apiInstance.get<WorkType>(`/api/writeOne/${id}`);
 
     return res.data;
   } catch (e) {
@@ -56,7 +56,7 @@ export const createPost = async (
   body: writeAddRequestType,
   config: AxiosRequestConfig = {}
 ): Promise<WorkType> => {
-  const res = await apiInstance.post(`/write`, body, { ...config });
+  const res = await apiInstance.post(`/api/write`, body, { ...config });
 
   return res.data;
 };
@@ -66,7 +66,7 @@ export const createPost = async (
  */
 export const deletePost = async (postId: string) => {
   try {
-    await apiInstance.delete(`/write/${postId}`, {
+    await apiInstance.delete(`/api/write/${postId}`, {
       data: {
         id: postId,
       },
@@ -86,7 +86,7 @@ export const createApply = async (
   body: userAddRequestType,
   config: AxiosRequestConfig = {}
 ): Promise<WorkType> => {
-  const res = await apiInstance.post(`/apply`, body, { ...config });
+  const res = await apiInstance.post(`/api/apply`, body, { ...config });
 
   return res.data;
 };

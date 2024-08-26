@@ -131,7 +131,7 @@ const UploadPage = () => {
           <Link to="/">
             <Button>취소</Button>
           </Link>
-          <Button type="submit">수정하기</Button>
+          <Button type="submit">등록하기</Button>
         </HStack>
       </Form>
     </Center>

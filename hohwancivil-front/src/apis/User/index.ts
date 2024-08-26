@@ -7,7 +7,7 @@ import handleError from "../handleError";
  */
 export const getMyPage = async (id: string) => {
   try {
-    const res = await apiInstance.get<mypageResponseType>(`/myPage/${id}`);
+    const res = await apiInstance.get<mypageResponseType>(`/api/myPage/${id}`);
 
     return res.data;
   } catch (e) {
