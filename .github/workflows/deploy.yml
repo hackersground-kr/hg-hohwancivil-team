@@ -34,3 +34,6 @@ jobs:
       - name: Set environment variables
         run: |
           az webapp config appsettings set --name plzwork --resource-group rg-hohwancivil-team --settings DB_ENDPOINT=${{ secrets.API_ENDPOINT }} DB_KEY=${{ secrets.API_KEY }}
+
+```   - name: Start application
+        run: cd db && npm start
