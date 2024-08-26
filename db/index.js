@@ -2,6 +2,11 @@
 const endpoint = process.env.API_ENDPOINT;
 const key = process.env.API_KEY;
 
+const cors = require('cors');
+app.use(cors({
+    origin: '*'
+}));
+
 
 
 const express = require('express');
