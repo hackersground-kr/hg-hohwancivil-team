@@ -20,6 +20,11 @@ jobs:
       - name: Install dependencies
         run: cd db && npm install
 
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
@@ -29,4 +34,3 @@ jobs:
       - name: Set environment variables
         run: |
           az webapp config appsettings set --name plzwork --resource-group rg-hohwancivil-team --settings DB_ENDPOINT=${{ secrets.API_ENDPOINT }} DB_KEY=${{ secrets.API_KEY }}
-          
