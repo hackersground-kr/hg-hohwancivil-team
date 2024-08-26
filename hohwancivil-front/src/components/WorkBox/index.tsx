@@ -9,7 +9,7 @@ export interface WorkBoxProps {
   startDate: string;
   endDate: string;
   species: string;
-  salary?: number;
+  salary: number;
 }
 
 const WorkBox = ({
@@ -45,7 +45,9 @@ const WorkBox = ({
       {isLargerThan768 ? (
         <Th>
           {isClosed ? (
-            <Button isDisabled={false}>마감</Button>
+            <Button isDisabled={true} color="#A2A2A2">
+              마감
+            </Button>
           ) : (
             <Button>지원하기</Button>
           )}

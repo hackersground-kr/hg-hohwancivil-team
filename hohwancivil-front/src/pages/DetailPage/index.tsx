@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import DetailText from "../../components/DetailText";
 import { WorkType } from "../../types/WorkType";
+import { useNavigate } from "react-router-dom";
 
 const dummy: WorkType = {
   location: "의성군 가음면",
@@ -29,6 +30,7 @@ const dummy: WorkType = {
 
 const DetailPage = () => {
   const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
+  const navigate = useNavigate();
 
   return (
     <>
@@ -92,7 +94,9 @@ const DetailPage = () => {
           </Text>
           <Text padding="2 rem">{dummy.details}</Text>
           <Center marginTop="1rem">
-            <Button w="20%">지원하기</Button>
+            <Button w="20%" onClick={() => navigate("/apply")}>
+              지원하기
+            </Button>
           </Center>
         </Stack>
       </Center>
