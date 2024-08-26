@@ -4,7 +4,7 @@ const key = process.env.API_KEY;
 
 const cors = require('cors');
 app.use(cors({
-    origin: '*'
+    origin: 'https://salmon-field-0f3ba8500.5.azurestaticapps.net'
 }));
 
 
