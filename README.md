@@ -67,7 +67,7 @@
 
    ![image](https://github.com/user-attachments/assets/3f8b634b-b2a5-42de-a774-0e2f5afd07d5)
 
-11. 만들기를 누르고 기다리면 완성!
+11. 검토+만들기를 누르고 마지막으로 다시 한번 만들기를 누르고 기다리면 완성!
 
     ![image](https://github.com/user-attachments/assets/a9f5beb8-9a64-4912-a692-067bc405b298)
 
