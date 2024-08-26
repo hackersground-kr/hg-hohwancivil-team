@@ -18,7 +18,9 @@ jobs:
           node-version: '20.17.0'  # 원하는 Node.js 버전
 
       - name: Install dependencies
-        run: cd db && npm install
+        run: |
+          cd db
+          npm install
 
       - name: Login to Azure
         uses: azure/login@v1
