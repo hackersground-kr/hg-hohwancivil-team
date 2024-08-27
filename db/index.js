@@ -3,7 +3,6 @@ const endpoint = process.env.API_ENDPOINT;
 const key = process.env.API_KEY;
 
 
-
 const express = require('express');
 
 const Joi = require('joi');
@@ -40,6 +39,20 @@ const schema_relation = Joi.object({
 const { CosmosClient } = require('@azure/cosmos');
 
 const app = express();
+
+//middleware
+const cors = require('cors');
+app.use(cors({
+    origin: 'https://salmon-field-0f3ba8500.5.azurestaticapps.net'
+}));
+
+app.use('/static', express.static('public', {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.js')) {
+            res.setHeader('Content-Type', 'text/javascript');
+        }
+    }
+}));
 const port = 3000;
 
 
@@ -56,7 +69,7 @@ const client = new CosmosClient({ endpoint, key });
 app.use(express.json());
 
 //글 생성 API
-app.post('/write', async (req, res) => {
+app.post('/api/write', async (req, res) => {
     const {error} = schema_write.validate(req.body);
 
     if (error) {
@@ -84,7 +97,7 @@ app.post('/write', async (req, res) => {
 });
 
 //user 생성 API
-app.post('/user', async (req, res) => {
+app.post('/api/user', async (req, res) => {
     const {name, phoneNumber} = req.body;
 
     const containerUser = client.database(databaseId).container(user);
@@ -98,7 +111,7 @@ app.post('/user', async (req, res) => {
 });
 
 //글 삭제 API
-app.delete('/write/:id', async (req, res) => {
+app.delete('/api/write/:id', async (req, res) => {
     const itemId = req.params.id; // URL 파라미터에서 id 가져오기
     const containerWrite = client.database(databaseId).container(write);
     const containerRelation = client.database(databaseId).container(relation); // relation 컨테이너
@@ -131,7 +144,7 @@ app.delete('/write/:id', async (req, res) => {
 });
 
 //글 1개 조회 API
-app.get('/writeOne/:id', async (req, res) => {
+app.get('/api/writeOne/:id', async (req, res) => {
     const itemId = req.params.id; // URL 파라미터에서 id 가져오기
     const container = client.database(databaseId).container(write);
 
@@ -160,7 +173,7 @@ app.get('/writeOne/:id', async (req, res) => {
 });
 
 //알바 목록 API
-app.get('/jobsList', async (req, res) => {
+app.get('/api/jobsList', async (req, res) => {
     const containerWrite = client.database(databaseId).container(write);
 
     try {
@@ -178,7 +191,7 @@ app.get('/jobsList', async (req, res) => {
 });
 
 //봉사 목록 API
-app.get('/volunList', async (req, res) => {
+app.get('/api/volunList', async (req, res) => {
     const containerWrite = client.database(databaseId).container(write);
 
     try {
@@ -197,7 +210,7 @@ app.get('/volunList', async (req, res) => {
 
 
 // 데이터 조회 API
-app.get('/items', async (req, res) => {
+app.get('/api/items', async (req, res) => {
     const container = client.database(databaseId).container(containerId);
     
     try {
