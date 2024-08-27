@@ -21,3 +21,9 @@ export interface writeAddRequestType {
   details: string;
   isClosed: boolean;
 }
+
+export interface userApplyRequestType {
+  name: string;
+  phoneNumber: string;
+  pr: string;
+}
